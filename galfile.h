@@ -17,7 +17,10 @@ public:
         Orange2
     };
 
-    struct Block {
+    class Block
+    {
+    public:
+       Block(const QString & data);
        int xOrigin;
        int yOrigin;
        int diameter;
@@ -27,7 +30,7 @@ public:
        int ySpacing;
     };
 
-    struct Row {
+    struct Spot {
         int block;
         int column;
         int row;
@@ -36,8 +39,8 @@ public:
         QStringList additionialCols;
     };
 
-    typedef QMap<int,Block> BlockList;
-    typedef QList<Row> RowList;
+    typedef QMap<int,Block *> BlockList;
+    typedef QList<Spot *> SpotList;
     typedef QHash<QString,QString> MetaData;
 
 
@@ -45,12 +48,20 @@ public:
     explicit GalFile(const QString & fileName, QObject * parent = 0);
 
     void readFile(const QString & fileName);
-
+    BlockList * blocks();
+    SpotList * spots();
+signals:
+    void fileRead();
 private:
     QString _fileName;
     BlockList _blocks;
-    RowList _data;
+    SpotList _data;
     MetaData _metaData;
+    Spot _colHeads;
+
+    void setBlock(int block, const QString & data);
+    void setSpotData(const QString & data);
+    void setSpotIndex(const QString & data, int colCount);
 
 signals:
 

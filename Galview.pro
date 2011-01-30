@@ -12,10 +12,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    galfile.cpp
+    galfile.cpp \
+    chipplotter.cpp
 
 HEADERS  += mainwindow.h \
-    galfile.h
+    galfile.h \
+    chipplotter.h
 
 FORMS    += mainwindow.ui
 

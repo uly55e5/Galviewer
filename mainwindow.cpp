@@ -3,6 +3,7 @@
 
 #include <QFileDialog>
 #include "galfile.h"
+#include "chipplotter.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,4 +22,16 @@ void MainWindow::openGalFile()
 {
     QString fileName = QFileDialog::getOpenFileName();
     _galFileList.append(new GalFile(fileName,this));
+    drawChip(_galFileList.last());
+}
+
+void MainWindow::drawChip(GalFile *file)
+{
+
+    ChipPlotter * cp = new ChipPlotter(file);
+    QGraphicsScene * scene =  cp->scene();
+    ui->chipView->setScene(scene);
+    ui->chipView->show();
+    ui->chipView->fitInView(scene->sceneRect(),Qt::KeepAspectRatio);
+
 }

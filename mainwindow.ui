@@ -14,7 +14,11 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGraphicsView" name="chipView"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -35,7 +39,7 @@
   </widget>
   <action name="actionFileOpen">
    <property name="text">
-    <string>open...</string>
+    <string>Open Gal File...</string>
    </property>
   </action>
  </widget>
