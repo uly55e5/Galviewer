@@ -2,9 +2,11 @@
 #define CHIPPLOTTER_H
 
 #include <QObject>
+#include <QMap>
 
 class GalFile;
 class QGraphicsScene;
+class QGraphicsItem;
 
 class ChipPlotter : public QObject
 {
@@ -19,6 +21,7 @@ public slots:
     void drawChip();
 private:
     QGraphicsScene * _scene;
+    QMap<int,QGraphicsItem *> _blockList;
     GalFile * _file;
 
 };

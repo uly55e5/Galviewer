@@ -13,11 +13,19 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     galfile.cpp \
-    chipplotter.cpp
+    chipplotter.cpp \
+    spotgraphicsitem.cpp \
+    blockgraphicsitem.cpp \
+    spot.cpp \
+    block.cpp
 
 HEADERS  += mainwindow.h \
     galfile.h \
-    chipplotter.h
+    chipplotter.h \
+    spotgraphicsitem.h \
+    blockgraphicsitem.h \
+    spot.h \
+    block.h
 
 FORMS    += mainwindow.ui
 

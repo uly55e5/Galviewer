@@ -6,6 +6,12 @@
 #include <QMap>
 #include <QStringList>
 
+class Block;
+class Spot;
+
+typedef QMap<int,Block *> BlockList;
+typedef QList<Spot *> SpotList;
+
 class GalFile : public QObject
 {
 
@@ -17,32 +23,7 @@ public:
         Orange2
     };
 
-    class Block
-    {
-    public:
-       Block(const QString & data);
-       int xOrigin;
-       int yOrigin;
-       int diameter;
-       int xCount;
-       int yCount;
-       int xSpacing;
-       int ySpacing;
-    };
-
-    struct Spot {
-        int block;
-        int column;
-        int row;
-        QString name;
-        QString id;
-        QStringList additionialCols;
-    };
-
-    typedef QMap<int,Block *> BlockList;
-    typedef QList<Spot *> SpotList;
     typedef QHash<QString,QString> MetaData;
-
 
     explicit GalFile(QObject *parent = 0);
     explicit GalFile(const QString & fileName, QObject * parent = 0);
@@ -55,13 +36,13 @@ signals:
 private:
     QString _fileName;
     BlockList _blocks;
-    SpotList _data;
+    QStringList _columnNames;
     MetaData _metaData;
-    Spot _colHeads;
+    int _colCount;
 
-    void setBlock(int block, const QString & data);
+    void newBlock(int block, const QString & data);
+    void setColumnHeader(const QString & data);
     void setSpotData(const QString & data);
-    void setSpotIndex(const QString & data, int colCount);
 
 signals:
 

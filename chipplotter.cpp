@@ -2,6 +2,9 @@
 
 #include<QGraphicsScene>
 #include "galfile.h"
+#include "blockgraphicsitem.h"
+#include "block.h"
+
 
 ChipPlotter::ChipPlotter(QObject *parent) :
     QObject(parent)
@@ -17,12 +20,12 @@ ChipPlotter::ChipPlotter(GalFile *file, QObject *parent)
 void ChipPlotter::drawChip()
 {
     _scene=new QGraphicsScene(this);
-    GalFile::BlockList * blocks = _file->blocks();
-    foreach (GalFile::Block * block, *blocks) {
-        _scene->addRect(block->xOrigin,
-                        block->yOrigin,
-                        block->xCount*block->xSpacing,
-                        block->yCount*block->ySpacing);
+    BlockList * blocks = _file->blocks();
+    foreach (Block * block, *blocks) {
+        BlockGraphicsItem * blockItem = new BlockGraphicsItem(block);
+        _scene->addItem(blockItem);
+        blockItem->setPos(block->xOrigin,block->yOrigin);
+
     }
 
     _scene->addRect(0,0,25000,76000);
