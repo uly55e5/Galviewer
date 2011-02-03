@@ -16,6 +16,9 @@ public:
     int row();
     QString name();
     QString id();
+    int diameter();
+    int xPos();
+    int yPos();
     QString value(QString column);
     QString value(int column);
 

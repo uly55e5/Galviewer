@@ -31,6 +31,7 @@ public:
     void readFile(const QString & fileName);
     BlockList * blocks();
     SpotList * spots();
+    const QStringList & columnnames();
 signals:
     void fileRead();
 private:

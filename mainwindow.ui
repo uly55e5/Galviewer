@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGraphicsView" name="chipView"/>
+     <widget class="ChipView" name="chipView"/>
     </item>
    </layout>
   </widget>
@@ -44,6 +44,13 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>ChipView</class>
+   <extends>QGraphicsView</extends>
+   <header>chipview.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

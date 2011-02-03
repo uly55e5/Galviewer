@@ -5,6 +5,7 @@
 #include <QMap>
 
 class GalFile;
+class Block;
 class QGraphicsScene;
 class QGraphicsItem;
 
@@ -19,6 +20,7 @@ signals:
 
 public slots:
     void drawChip();
+    void drawBlock(Block * block);
 private:
     QGraphicsScene * _scene;
     QMap<int,QGraphicsItem *> _blockList;

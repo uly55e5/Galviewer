@@ -28,7 +28,7 @@ void MainWindow::openGalFile()
 void MainWindow::drawChip(GalFile *file)
 {
 
-    ChipPlotter * cp = new ChipPlotter(file);
+    ChipPlotter * cp = new ChipPlotter(file,this);
     QGraphicsScene * scene =  cp->scene();
     ui->chipView->setScene(scene);
     ui->chipView->show();

@@ -16,8 +16,8 @@ BlockGraphicsItem::BlockGraphicsItem(Block * block,QGraphicsItem *parent) :
 void BlockGraphicsItem::drawBlock()
 {
     _rect = new QGraphicsRectItem(0,0,
-                            _block->xCount*_block->xSpacing,
-                            _block->yCount*_block->ySpacing,this);
+                            _block->xCount()*_block->xSpacing(),
+                            _block->yCount()*_block->ySpacing(),this);
 }
 
 QRectF BlockGraphicsItem::boundingRect () const

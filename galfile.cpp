@@ -56,7 +56,7 @@ void GalFile::readFile(const QString &fileName)
 
 void GalFile::newBlock(int block, const QString & data)
 {
-    Block * newBlock = new Block(block,data);
+    Block * newBlock = new Block(block,data,this);
     _blocks.insert(block,newBlock);
 }
 
@@ -89,4 +89,9 @@ SpotList * GalFile::spots()
         allSpots->append(*(block->spots()));
     }
     return allSpots;
+}
+
+const QStringList & GalFile::columnnames()
+{
+    return _columnNames;
 }

@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     spotgraphicsitem.cpp \
     blockgraphicsitem.cpp \
     spot.cpp \
-    block.cpp
+    block.cpp \
+    chipview.cpp
 
 HEADERS  += mainwindow.h \
     galfile.h \
@@ -25,7 +26,8 @@ HEADERS  += mainwindow.h \
     spotgraphicsitem.h \
     blockgraphicsitem.h \
     spot.h \
-    block.h
+    block.h \
+    chipview.h
 
 FORMS    += mainwindow.ui
 
