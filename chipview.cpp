@@ -20,3 +20,15 @@ void ChipView::wheelEvent ( QWheelEvent * event )
     event->accept();
 
 }
+
+void ChipView::zoomIn(int speed)
+{
+    qreal zoom=pow(1.15,speed);
+    scale(zoom,zoom);
+}
+
+void ChipView::zoomOut(int speed)
+{
+    qreal zoom=pow(0.9,speed);
+    scale(zoom,zoom);
+}

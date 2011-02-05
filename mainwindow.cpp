@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->actionFileOpen,SIGNAL(triggered()),SLOT(openGalFile()));
+    connect(ui->pushButtonZoomIn,SIGNAL(pressed()),ui->chipView,SLOT(zoomIn()));
+    connect(ui->pushButtonZoomOut,SIGNAL(pressed()),ui->chipView,SLOT(zoomOut()));
 }
 
 MainWindow::~MainWindow()

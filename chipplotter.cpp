@@ -38,6 +38,9 @@ void ChipPlotter::drawBlock(Block * block)
     BlockGraphicsItem * blockItem = new BlockGraphicsItem(block);
     _scene->addItem(blockItem);
     blockItem->setPos(block->xOrigin(),block->yOrigin());
+    QVector<qreal> emptyDashPattern;
+    emptyDashPattern << 3 << 6;
+    SpotGraphicsItem::setEmptyPen(emptyDashPattern);
     foreach(Spot * spot, *(block->spots()))
     {
         SpotGraphicsItem * spotItem= new SpotGraphicsItem(spot,blockItem);

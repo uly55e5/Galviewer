@@ -12,6 +12,7 @@ class Block : public QObject
 public:
 
     Block(int number,const QString & data, GalFile * file);
+    Block(int number, GalFile * file);
     void addSpot(Spot * spot);
     Spot * spot(int column,int row);
     SpotList * spots();

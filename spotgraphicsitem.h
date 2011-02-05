@@ -10,6 +10,7 @@ public:
     explicit SpotGraphicsItem(Spot * spot, QGraphicsItem *parent = 0);
     QRectF boundingRect () const;
     void paint ( QPainter * painter, const QStyleOptionGraphicsItem * option, QWidget * widget = 0 );
+    static void setEmptyPen(QVector<qreal> dashPattern);
 
 
 signals:
@@ -21,6 +22,9 @@ private:
 
     Spot * _spot;
     QGraphicsEllipseItem * _circle;
+    static QPen s_emptyPen;
+    QString _text;
+
 
 };
 

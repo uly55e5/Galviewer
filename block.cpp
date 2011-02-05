@@ -8,6 +8,13 @@ Block::Block(int block, const QString & data, GalFile * parent) :
     setData(data);
 }
 
+Block::Block(int block, GalFile * parent) :
+    QObject(parent)
+{
+    _file = parent;
+    _blockNumber = block;
+}
+
 void Block::addSpot(Spot * spot)
 {
     _spots.append(spot);

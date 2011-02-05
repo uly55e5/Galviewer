@@ -14,7 +14,52 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="pushButtonOpen">
+        <property name="text">
+         <string>Open</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonExit">
+        <property name="text">
+         <string>Exit</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonZoomIn">
+        <property name="text">
+         <string>Zoom In</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonZoomOut">
+        <property name="text">
+         <string>Zoom Out</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
     <item>
      <widget class="ChipView" name="chipView"/>
     </item>
@@ -34,12 +79,18 @@
      <string>File</string>
     </property>
     <addaction name="actionFileOpen"/>
+    <addaction name="actionExit"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <action name="actionFileOpen">
    <property name="text">
     <string>Open Gal File...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>
@@ -52,5 +103,54 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonOpen</sender>
+   <signal>pressed()</signal>
+   <receiver>actionFileOpen</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>49</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonExit</sender>
+   <signal>pressed()</signal>
+   <receiver>actionExit</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

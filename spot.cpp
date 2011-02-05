@@ -7,6 +7,10 @@ Spot::Spot(const QStringList & data, Block *parent) :
 {
     _data = data;
     _block = parent;
+    if(id() == "empty")
+        _isEmpty=TRUE;
+    else
+        _isEmpty=FALSE;
 }
 
 int Spot::diameter()
@@ -33,4 +37,29 @@ QString Spot::value(QString column)
 QString Spot::id()
 {
     return value("ID");
+}
+
+bool Spot::isEmpty()
+{
+    return _isEmpty;
+}
+
+int Spot::row()
+{
+    return value("Row").toInt();
+}
+
+int Spot::column()
+{
+    return value("Column").toInt();
+}
+
+int Spot::blockNumber()
+{
+    return value("Block").toInt();
+}
+
+QString Spot::name()
+{
+    return value("Name");
 }

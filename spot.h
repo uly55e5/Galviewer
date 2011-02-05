@@ -21,6 +21,7 @@ public:
     int yPos();
     QString value(QString column);
     QString value(int column);
+    bool isEmpty();
 
 signals:
 
@@ -29,6 +30,7 @@ public slots:
 private:
     Block * _block;
     QStringList _data;
+    bool _isEmpty;
 };
 
 #endif // SPOT_H
