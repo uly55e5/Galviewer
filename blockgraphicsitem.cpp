@@ -31,3 +31,8 @@ void BlockGraphicsItem::paint ( QPainter * painter, const QStyleOptionGraphicsIt
 {
     return;
 }
+
+int BlockGraphicsItem::type() const
+{
+    return Type;
+}

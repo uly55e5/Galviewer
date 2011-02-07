@@ -19,6 +19,7 @@ public:
 public slots:
     void openGalFile();
     void drawChip(GalFile*file);
+    void saveSelectedItems();
 private:
     Ui::MainWindow *ui;
     QList<GalFile *> _galFileList;

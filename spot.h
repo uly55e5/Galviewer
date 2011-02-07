@@ -22,6 +22,8 @@ public:
     QString value(QString column);
     QString value(int column);
     bool isEmpty();
+    QString dataAsString() const;
+    QString dataNamesAsString() const;
 
 signals:
 

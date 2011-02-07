@@ -63,3 +63,13 @@ QString Spot::name()
 {
     return value("Name");
 }
+
+QString Spot::dataAsString() const
+{
+    return _data.join(";");
+}
+
+QString Spot::dataNamesAsString() const
+{
+    return _block->columnNames().join(";");
+}

@@ -12,9 +12,14 @@ public:
 signals:
 
 public slots:
-    void wheelEvent ( QWheelEvent * event ) ;
+    void wheelEvent ( QWheelEvent * event );
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
     void zoomIn(int speed=1);
     void zoomOut(int speed=1);
+
+private:
+    QPointF _moveStartPos;
 
 };
 
