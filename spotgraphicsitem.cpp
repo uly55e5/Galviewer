@@ -14,6 +14,7 @@ SpotGraphicsItem::SpotGraphicsItem(Spot * spot, QGraphicsItem *parent) :
     _spot = spot;
     setFlag(QGraphicsItem::ItemIsSelectable);
     _text = QString("%1,%2,%3\n%4\n%5").arg(_spot->blockNumber()).arg(_spot->column()).arg(_spot->row()).arg(_spot->id()).arg(_spot->name());
+    setToolTip(_text);
 }
 
 

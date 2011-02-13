@@ -45,10 +45,16 @@ void MainWindow::drawChip(GalFile *file)
 void MainWindow::saveSelectedItems()
 {
     QList<QGraphicsItem *> items =  ui->chipView->scene()->selectedItems();
+    bool first = true;
     foreach (QGraphicsItem * item, items) {
-        if (qgraphicsitem_cast<SpotGraphicsItem*>(item) != 0)
+        SpotGraphicsItem * spot =qgraphicsitem_cast<SpotGraphicsItem *> (item);
+        if (spot != 0)
         {
-            SpotGraphicsItem * spot =qgraphicsitem_cast<SpotGraphicsItem *> (item);
+
+            if(first)
+            {
+                qDebug() << spot->spot()->dataNamesAsString();
+            }
             qDebug() << spot->spot()->dataAsString();
         }
     }
